@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FIND YOUR LOST</title>
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body background='pics/CUHK.jpg'>
+    <div class="container">
+        <div class="col-md-12 column">
+            <h1>
+                FIND YOUR LOST
+                <small>Home</small>
+            </h1>
+        </div>
+    </div>
+<br>
+<br>
+    <div class="container">
+        <!--changable-->
+        <div class="col-md-6 col-xs-12 column text-center">
+            <input type="button" id="uploader" value="I've found something." onclick="javascrtpt:jump('/uploader')" class="btn btn-primary btn-block btn-lg" style="height:200px">
+        </div>
+        <div class="col-md-6 col-xs-12 column text-center">
+            <input type="button" id="seeker" value="I've lost something." onclick="javascrtpt:jump('/seeker')" class="btn btn-danger btn-block btn-lg" style="height:200px">
+        </div>
+    </div>
+</body>
+</html>
+<script>
+function jump(url){
+    window.location.href=url;
+}
+</script>

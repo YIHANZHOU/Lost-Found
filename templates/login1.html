@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FIND YOUR LOST</title>
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-12 column">
+            <h1>
+                FIND YOUR LOST
+                <small>Log in</small>
+            </h1>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <!--changable-->
+        <div class="col-md-6 col-xs-12 column">
+            <h2>LOG IN</h2>
+            <form action="/login" method="post" role="form">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" name="username" />
+                <br>
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" />
+                <br>
+                <input type="submit" class="btn btn-default" value="Log in">
+            </form>
+        </div>
+        <div class="col-md-6 col-xs-12 column">
+            <h2>REGISTRATION</h2>
+            <form action="/regist" method="post" role="form">
+                <label for="username">Username</label>
+                <input type="number" id="id1" min="115010000" max="115010300" class="form-control" name="username" onkeydown="myFunction()">
+                <br>
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" />
+                <br>
+                <input type="submit" class="btn btn-default" value="Sign up">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    function jump(url) {
+        window.location.href = url;
+    }
+    function myFunction() {
+    var inpObj = document.getElementById("id1");
+    if (inpObj.checkValidity() == false) {
+        document.getElementById("demo").innerHTML = inpObj.validationMessage;
+    } else {
+        document.getElementById("demo").innerHTML = "输入正确";
+    }
+</script>

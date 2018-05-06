@@ -1,0 +1,5 @@
+body { 
+text-align:center;}
+html,body { height:100%;}
+.div1 { height:75%; width:90%; margin:0 auto; overflow:hidden;}
+.div1 img { width:100%; display:block;}

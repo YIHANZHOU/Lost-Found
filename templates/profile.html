@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>FIND YOUR LOST</title>
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/static/js/jquery-1.9.1.min.js"></script>
+    <script src="/static/js/layer-v3.1.1/layer-v3.1.1/layer/layer.js"></script>
+    <script src="/static/js/demo.js"></script>
+
+    </head>
+
+<body>
+    <div class="container">
+        <div class="col-md-10 column">
+            <h1>
+                FIND YOUR LOST
+                <small>Profile of {{user.name}}</small>
+            </h1>
+            <div>
+              <a href="javascript:;" id="bLogin" onclick="ShowLoginText()">
+              <h2>Change account information</h2></a>
+            </div>
+        </div>
+        <div class="col-md-2 column">
+            <p class="text-right"><a href="\">HOME</a></p>
+            <p class="text-right"><a href="{{user.link}}">{{user.name}}</a></p>
+            <p class="text-right"><a href="\logout">LOG OUT</a></p>
+        </div>
+      </div>
+      <br>
+      <br>
+
+    <div class="container">
+        <!--changable-->
+        <div class = "col-md-4 column">
+            <img style ="max-width:100%; overflow:hidden" src = "https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=d35525b806f3d7ca18fb37249376d56c/cdbf6c81800a19d8f749e68339fa828ba71e46e9.jpg">
+        </div>
+
+        <!--changable-->
+        <div class="col-md-8 col-xs-12 column text-center">
+            <h1>LOST</h1>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>物品名称</th>
+                    <th>丢失时间</th>
+                    <th>详情</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item[0] }}</td>
+                        <td>{{ item[1] }}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary"
+                                    onclick="window.location.href='/item-detail?id={{ item[2] }}'">
+                                详情
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div id="loginBox">
+            <form action="/found" method="post" role="form">
+                <label for="name">Item name</label>
+                <input type="text" class="form-control" name="name" id="InputUsername"/>
+                <br>
+                <label for="detail">Detail</label>
+                <input type="text" class="form-control" name="detail" id="InputUserPwd"/>
+                <br>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+
+        <div class="col-md-8 col-xs-12 column text-center">
+            <h1>FOUND</h1>
+            <table class="table">
+            <thead>
+            <tr>
+                <th>物品名称</th>
+                <th>时间</th>
+                <th>详情</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for notitem in notitems %}
+                <tr>
+                    <td>{{ notitem[0] }}</td>
+                    <td>{{ notitem[1] }}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary"
+                                onclick="window.location.href='/item-detail?id={{ notitem[2] }}'">
+                            详情
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        <div id="loginBox">
+            <form action="/found" method="post" role="form">
+                <label for="name">Item name</label>
+                <input type="text" class="form-control" name="name" id="InputUsername"/>
+                <br>
+                <label for="detail">Detail</label>
+                <input type="text" class="form-control" name="detail" id="InputUserPwd"/>
+                <br>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+
+        <div id="loginBox">
+            <form action="/profile" method="post" role="form">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password"id="InputUsername" />
+                <br>
+                <label for="contact">Contact Information</label>
+                <input type="text" class="form-control" name="contact" value="{{user.contact}}" id="InputUserPwd"/>
+                <br>
+                <button type="submit" class="btn btn-default">Save</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+function jump(url){
+    window.location.href=url;
+}
+</script>
