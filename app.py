@@ -100,7 +100,7 @@ def lost():
                         session['username'],
                         request.form.get('detail')))
         con.commit()
-        return redirect('/lost')
+        return redirect('/found')
     else:
         if not session.get('username'):
             return redirect('/login')
